@@ -1,0 +1,169 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+     background-image: url('./Vista\ frontal\ mulher\ compras\ on-line\ _\ Foto\ Grátis.jpg');
+      background-size: cover;    
+      background-position: center;  
+      background-repeat: no-repeat; 
+      height: 10vh;        
+}
+
+header {
+    background-color: gray;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 30px;
+    color: chartreuse;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    color:chartreuse;
+}
+
+header nav ul li {
+    margin: 0 15px;
+    color:chartreuse;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    color:chartreuse;
+}
+
+header nav ul li a:hover {
+    color: orange;
+    transform: scale(1.05);
+}
+
+
+.hero {
+    text-align: center;
+    padding: 60px 0;
+    background-color:transparent;
+    color: #fff;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #e6b391;
+    transform: scale(1.05);
+
+}
+
+footer {
+    background-color: chocolate;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.container{
+    margin-bottom: 250px;
+    text-align: center;
+    align-items: center;
+    color: #e65c00;
+    font-size: 20px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #2e180f;
+  color: #ffffff;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40px 20px;
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: #4b2c1d;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 260px;
+  flex: 1 1 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 32px;
+  background-color: #5c3b2a;
+  padding: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #dddddd;
+}
+
+
+/* Header section styling */
+.site-header {
+  background-color: #eecf21;
+  padding: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  z-index: 90;
+}
+
+/* Logo image styling */
+.logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+

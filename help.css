@@ -1,0 +1,126 @@
+/* HELP PAGE */
+.help-page {
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  color: #f5f5f5;
+}
+
+.help-page h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ff9f1c; /* Accent color */
+}
+
+.help-page .description {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.faq {
+  margin-bottom: 40px;
+}
+
+.faq h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ffd166;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #222;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.faq-item h4 {
+  margin-bottom: 8px;
+  color: #06d6a0;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #ccc;
+}
+
+.contact-help h3 {
+  color: #ef476f;
+  margin-bottom: 15px;
+}
+
+.contact-help ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-help li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+/* HEADER STYLING */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #111; /* dark background */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff9f1c;  /* orange accent */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* NAVIGATION LINKS */
+header nav {
+  display: flex;
+  gap: 25px;
+}
+
+header nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #eee;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+header nav a:hover {
+  color: #ff9f1c;
+  border-bottom: 2px solid #ff9f1c;
+  padding-bottom: 3px;
+}
+
+header nav a.active {
+  color: #ff9f1c;
+  border-bottom: 2px solid #ff9f1c;
+  padding-bottom: 3px;
+}
+
+/* SIGN IN BUTTON */
+.btn-signing {
+  background: #ff9f1c;
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-signing:hover {
+  background: #ffbf69;
+  transform: scale(1.05);
+}

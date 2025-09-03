@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <style>
+    body {
+      text-align: center;
+      background-image: url('./Logo design for online shoping store.jpg'); /* Make sure this path is correct */
+      background-repeat: repeat;
+      background-color: transparent;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 600px;
+      color: orange;
+      border-radius: 15px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin: 10px 0 9px;
+      font-size: 15px;
+    }
+
+    form input, form select {
+      border-radius: 5px;
+      height: 40px;
+      width: 50%;
+      padding: 9px;
+      margin-bottom: 20px;
+      background-color: whitesmoke;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .btn {
+      background-color: orange;
+      padding: 10px 20px;
+      border-radius: 15px;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      margin-left: 200px;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    .display {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      font-size: 20px;
+    }
+
+    #success-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="registration">
+    <div class="container">
+      <h2>Registration Here</h2>
+      <form id="registrationForm">
+        <label>Register as:</label>
+        <div class="display">
+          <input type="radio" id="buyer" name="role" value="buyer" required />
+          <label for="buyer">Buyer</label>
+
+          <input type="radio" id="seller" name="role" value="seller" />
+          <label for="seller">Seller</label>
+
+          <input type="radio" id="both" name="role" value="both" />
+          <label for="both">Both</label>
+        </div>
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Set the login password" required />
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required />
+
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" placeholder="Enter Company name here" required />
+
+        <button type="submit" class="btn">Create an account</button>
+      </form>
+      <p id="success-message">🎉 Registration successful!</p>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Stop form from reloading page
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm_password").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Show success message
+      document.getElementById("success-message").style.display = "block";
+
+      // Optionally reset form
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

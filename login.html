@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KIBA Online Store - Login</title>
+  <style>
+    *{
+        text-decoration: none;
+    }
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .container {
+      background: white;
+      width: 350px;
+      margin: 100px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    h2 {
+      color: orange;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid gray;
+    }
+
+    .btn {
+      background-color: orange;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Login to KIBA Online Store</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn"><a href="dashboard.html">Login</a></button>
+    </form>
+    <p id="loginMessage" class="message"></p>
+  </div>
+
+  <script>
+    // when the user clicks the login button
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // stop page from reloading
+
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let message = document.getElementById("loginMessage");
+
+      // Check if password has at least one letter (not just numbers)
+      let hasLetter = /[a-zA-Z]/.test(password);
+
+      if (email.includes("@") && hasLetter) {
+        message.textContent = "Login successful!";
+        message.className = "message success";
+      } else {
+        message.textContent = "Password must include at least one letter and email must be valid!";
+        message.className = "message error";
+      }
+
+      message.style.display = "block"; // SHOW the message
+    });
+  </script>
+
+</body>
+</html>

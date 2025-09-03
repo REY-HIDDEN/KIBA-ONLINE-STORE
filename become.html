@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Become a Supplier - KIBA Online Store</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:gray;
+    }
+
+    header {
+      background-color: whitesmoke;
+      color: brown;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    nav ul li a {
+      color: black;
+      text-decoration: none;
+      color: gray;
+    }
+    nav ul li a :hover{
+      color: gray;
+    }
+
+    .supplier-section {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: plum;
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .supplier-section h1 {
+      color: antiquewhite;
+      margin-bottom: 10px;
+    }
+
+    .supplier-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .supplier-form input,
+    .supplier-form textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 11px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .supplier-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .supplier-form button {
+   background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0,   #757575, #656565
+);
+   transition: 0.2s ease;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">KIBA Online Store</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="supplier-section">
+    <h1>Become a Supplier</h1>
+    <p><i>Partner with KIBA and expand your business by reaching thousands of customers.</i></p>
+    
+    <form class="supplier-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="text" placeholder="Company Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <textarea placeholder="Tell us about your products..." required></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KIBA Online Store. All rights reserved.</p>
+  </footer>
+</body>
+</html>

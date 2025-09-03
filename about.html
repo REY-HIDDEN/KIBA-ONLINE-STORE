@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4361ee;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .team-member button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #4361ee;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .team-member button:hover {
+            background-color: #3a0ca3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #222;
+            color: white;
+            margin-top: 3rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>About Us</h1>
+        <p>We are a passionate team committed to delivering the best solutions.</p>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:2rem;">Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/120" alt="Member 1">
+                <h3>BIT BREW DEV</h3>
+                <p>Frontend Developer</p>
+                <button onclick="showMore(this)">More Info</button>
+                <p class="more-info" style="display:none;">BIT is an expert in Vue.js and modern frontend frameworks.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="https://via.placeholder.com/120" alt="Member 2">
+                <h3>REY DEV</h3>
+                <p>Backend Developer</p>
+                <button onclick="showMore(this)">More Info</button>
+                <p class="more-info" style="display:none;">REY specializes in Node.js and database architecture.</p>
+            </div>
+
+            <div class="team-member">
+                <img src="https://via.placeholder.com/120" alt="Member 3">
+                <h3>Mary Johnson</h3>
+                <p>UI/UX Designer</p>
+                <button onclick="showMore(this)">More Info</button>
+                <p class="more-info" style="display:none;">Mary creates stunning and user-friendly designs for web and mobile.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Our Company. All rights reserved.
+    </footer>
+
+    <script>
+        function showMore(button) {
+            const info = button.nextElementSibling;
+            if(info.style.display === "none") {
+                info.style.display = "block";
+                button.textContent = "Less Info";
+            } else {
+                info.style.display = "none";
+                button.textContent = "More Info";
+            }
+        }
+    </script>
+
+</body>
+</html>
