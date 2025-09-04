@@ -1,130 +1,156 @@
-*{
-   list-style: none;
-   text-decoration: none;
-}
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* ===== Reset and General Styling ===== */
+* {
+  cursor: pointer;
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
-  color: #333;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #f18181;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
 header {
-  background:rgb(248, 168, 110);
-  color: white;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #222;
+  padding: 15px 30px;
+  color: #fff;
 }
 
-.logo {
-  font-size: 1.5rem;
+header .logo a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-background-color:rgb(248, 168, 110);
-color: white;
-}
-.logo:hover{
-  color: chartreuse;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
 }
 
 nav ul li a {
+  color: #fff;
   text-decoration: none;
-  color: white;
-  transition: color 0.3s;
+  font-size: 14px;
 }
 
-nav ul li a:hover {
-  color: yellowgreen;
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ===== Hero Section ===== */
 .hero {
-  background-color: #eee;
-  padding: 3rem 2rem;
   text-align: center;
+  padding: 50px 20px;
+  background: #eee;
 }
 
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* ===== Services Section ===== */
 .services {
+  padding: 40px 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .service-card {
-  background:rgb(207, 216, 78);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
-  cursor: pointer;
+  color: #fff; /* Make text white for contrast */
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-.service-card h2 {
-  color: chocolate;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
+.service-card:hover {
+  transform: translateY(-5px);
 }
 
-.service-card:hover{
-  transform: scale(1.10);
-}
-.service-card p {
-  font-size: 0.95rem;
+.service-card img {
+  margin-top: 15px;
+  border-radius: 8px;
 }
 
-.chat {
-  margin-top: 1rem;
-  text-align: center;
-  cursor: pointer;
-}
+/* 🎨 Different background colors for cards */
+.service-card:nth-child(1) { background: #FF6B6B; }  /* Red */
+.service-card:nth-child(2) { background: #4ECDC4; }  /* Teal */
+.service-card:nth-child(3) { background: #45B7D1; }  /* Blue */
+.service-card:nth-child(4) { background: #FFA600; }  /* Orange */
+.service-card:nth-child(5) { background: #6A4C93; }  /* Purple */
+.service-card:nth-child(6) { background: #2ECC71; }  /* Green */
+.service-card:nth-child(7) { background: #FF9F1C; }  /* Amber */
+.service-card:nth-child(8) { background: #1E90FF; }  /* Dodger Blue */
+.service-card:nth-child(9) { background: #E74C3C; }  /* Strong Red */
+.service-card:nth-child(10) { background: #16A085; } /* Emerald */
 
-.chat img {
-  border-radius: 10px;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
+/* You can keep adding nth-child for more cards */
+
+/* ===== Footer ===== */
+
+/* 🎨 Different background colors for cards */
+.service-card:nth-child(1) { background: #FF6B6B; }  /* Red */
+.service-card:nth-child(2) { background: #4ECDC4; }  /* Teal */
+.service-card:nth-child(3) { background: #45B7D1; }  /* Blue */
+.service-card:nth-child(4) { background: #FFA600; }  /* Orange */
+.service-card:nth-child(5) { background: #6A4C93; }  /* Purple */
+.service-card:nth-child(6) { background: #2ECC71; }  /* Green */
+.service-card:nth-child(7) { background: #FF9F1C; }  /* Amber */
+.service-card:nth-child(8) { background: #1E90FF; }  /* Dodger Blue */
+.service-card:nth-child(9) { background: #E74C3C; }  /* Strong Red */
+.service-card:nth-child(10) { background: #16A085; } /* Emerald */
+
+/* You can keep adding nth-child for more cards */
+
+/* 🎨 Different background colors for cards */
+.service-card:nth-child(11) { background: #FF6B6B; }  /* Red */
+.service-card:nth-child(12) { background: #4ECDC4; }  /* Teal */
+.service-card:nth-child(13) { background: #45B7D1; }  /* Blue */
+.service-card:nth-child(14) { background: #FFA600; }  /* Orange */
+.service-card:nth-child(15) { background: #6A4C93; }  /* Purple */
+.service-card:nth-child(16) { background: #2ECC71; }  /* Green */
+.service-card:nth-child(17) { background: #FF9F1C; }  /* Amber */
+.service-card:nth-child(18) { background: #1E90FF; }  /* Dodger Blue */
+.service-card:nth-child(19) { background: #E74C3C; }  /* Strong Red */
+.service-card:nth-child(20) { background: #16A085; } /* Emerald */
+
+/* You can keep adding nth-child for more cards */
 
 footer {
-  background: #20232a;
-  color: white;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-.king {
-  display: flex;
-  justify-content: center;  /* Center the icons horizontally */
-  gap: 20px;                /* Space between icons */
+  padding: 15px;
+  background: #222;
+  color: #fff;
   margin-top: 20px;
 }
 
-.king img {
-  width: 40px;     
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
+.king {
+  text-align: center;
+  padding: 15px;
 }
 
-.king img:hover {
-  transform: scale(1.1);    /* Slight zoom on hover */
-  filter: brightness(1.2);  /* Brighten icon on hover */
+.king img {
+  width: 30px;
+  margin: 0 8px;
+  cursor: pointer;
 }
-    .search-bar{
-background-color: white;
-border-radius:20px;
-padding: 15px;
-box-shadow: #20232a;
-    }
-      .search-bar input{border:none;padding:5px; display: flex;}
