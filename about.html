@@ -7,6 +7,7 @@
     <style>
         /* Reset some default styles */
         * {
+            text-decoration: none;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -100,21 +101,32 @@
             color: white;
             margin-top: 3rem;
         }
+        .real{
+            background-color: #4361ee;
+            cursor: pointer;
+            font-size: 30px;
+            font-weight:bold ;
+            margin-left: 90%;
+        }
+        .real a:hover{
+     background: #333;
+        }
 
     </style>
 </head>
-<body>
 
     <header>
+        <body>
+       <a href="index.html"> <p class="real">HOME</p></a>
         <h1>About Us</h1>
-        <p>We are a passionate team committed to delivering the best solutions.</p>
+        <p>We are a passionate team committed to delivering the best solutions to the people.</p>
     </header>
 
     <div class="container">
         <h2 style="text-align:center; margin-bottom:2rem;">Meet Our Team</h2>
         <div class="team">
             <div class="team-member">
-                <img src="https://via.placeholder.com/120" alt="Member 1">
+                <img src="Junger Programmierer am Laptop.png" alt="Member 1">
                 <h3>BIT BREW DEV</h3>
                 <p>Frontend Developer</p>
                 <button onclick="showMore(this)">More Info</button>
@@ -122,7 +134,7 @@
             </div>
 
             <div class="team-member">
-                <img src="https://via.placeholder.com/120" alt="Member 2">
+                <img src="A littel boy codding on computer.jpg" alt="Member 2">
                 <h3>REY DEV</h3>
                 <p>Backend Developer</p>
                 <button onclick="showMore(this)">More Info</button>
@@ -130,7 +142,7 @@
             </div>
 
             <div class="team-member">
-                <img src="https://via.placeholder.com/120" alt="Member 3">
+                <img src="./image222.png" alt="Member 3">
                 <h3>Mary Johnson</h3>
                 <p>UI/UX Designer</p>
                 <button onclick="showMore(this)">More Info</button>
