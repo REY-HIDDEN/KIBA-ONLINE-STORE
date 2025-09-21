@@ -5,13 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Dashboard - KIBA Online Store</title>
   <link rel="stylesheet" href="dash.css">
+  <style>
+    /* Marquee Replacement */
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      animation: marquee 10s linear infinite;
+      background-color: #f2f2f2;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Sidebar Toggle Button */
+    .sidebar-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 5px;
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .sidebar {
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #f8f9fa;
+        width: 200px;
+        padding: 20px;
+        z-index: 999;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Sidebar Toggle Button -->
+
   <!-- HEADER -->
   <header class="dashboard-header">
-    <h1 class="logo">KIBA ONLINE STORE USER   Dashboard</h1>
+    <h1 class="logo">KIBA ONLINE STORE USER Dashboard</h1>
     <div class="user-info">
-      <span>Welcome, <strong>User</strong></span>
+      <span>Welcome, <strong id="username">User</strong></span>
       <a href="login.html" class="btn-logout">Logout</a>
     </div>
   </header>
@@ -20,12 +77,12 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <nav>
-        <a href="#" class="active">🏠 Dashboard</a>
-        <a href="#">👤 Profile</a>
-        <a href="#">🛒 My Orders</a>
-        <a href="#">❤️ Wishlist</a>
-        <a href="#">⚙️ Settings</a>
-        <a href="help.html">❓ Help</a>
+        <a href="dashboard.html" class="active">🏠 Dashboard</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="orders.html">🛒 My Orders</a>
+    <a href="wishlist.html">❤️ Wishlist</a>
+    <a href="help.html">⚙️ Settings</a>
+    <a href="help.html">❓ Help</a>
       </nav>
     </aside>
 
@@ -53,9 +110,54 @@
         </div>
       </div>
     </main>
+    
   </div>
-  <marquee behavior=" security" direction="right">WELCOME to Kiba Online Store !!! .</marquee>
-</body>
-<script src="dashboard.js"></script>
 
+  
+
+  <!-- Marquee Replacement -->
+  <div class="marquee">WELCOME to Kiba Online Store !!!</div>
+
+  <script>
+    // =====================
+    // Dynamic Username
+    // =====================
+    const username = "LIZIKI"; // Replace with session/login data
+    const usernameElement = document.getElementById("username");
+    if (usernameElement) {
+      usernameElement.textContent = username;
+    }
+
+    // =====================
+    // Sidebar Toggle for Mobile
+    // =====================
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+
+    // =====================
+    // Logout Confirmation
+    // =====================
+    const logoutBtn = document.querySelector(".btn-logout");
+    logoutBtn.addEventListener("click", (e) => {
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if (!confirmLogout) {
+        e.preventDefault(); // Cancel logout
+      }
+    });
+
+    // =====================
+    // Card Click Example
+    // =====================
+    const cards = document.querySelectorAll(".card a");
+    cards.forEach((cardLink) => {
+      cardLink.addEventListener("click", (e) => {
+        alert(`You clicked on: ${cardLink.textContent}`);
+      });
+    });
+  </script>
+</body>
 </html>
