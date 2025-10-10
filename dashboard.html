@@ -5,99 +5,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KIBA Online Store - Services</title>
   <link rel="stylesheet" href="service.css" />
+  <!-- Font Awesome for search icon (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
-    /* Responsive container for all content */
+    body {
+      background: #f6f8fc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     .main-container {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 16px;
+    }
+    header {
+      background: #fff;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 2px 16px rgba(99,102,241,0.07);
+      padding: 14px 0 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo a {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #4f46e5;
+      text-decoration: none;
+      letter-spacing: 1px;
+      padding-left: 12px;
+      text-shadow: 0 0 8px #a5b4fc33;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #4f46e5;
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 7px;
+      font-weight: 500;
+      transition: background 0.18s, color 0.18s;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #e0e7ff;
+      color: #232946;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 4px 10px;
+      gap: 7px;
+    }
+    .search-bar input {
+      border: none;
+      background: none;
+      padding: 7px;
+      font-size: 1rem;
+      width: 170px;
+      outline: none;
+      color: #232946;
+    }
+    .search-bar i {
+      color: #6366f1;
+      font-size: 1.1rem;
+    }
+    .hero {
+      margin: 26px 0 10px 0;
+      padding: 24px 14px;
+      text-align: center;
+      background: linear-gradient(100deg, #e0e7ff 0%, #fff 90%);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.05);
+    }
+    .hero h1 {
+      font-size: 2rem;
+      color: #4f46e5;
+      margin-bottom: 0.5rem;
     }
     .services {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.2rem;
       justify-content: center;
+      margin: 26px 0;
     }
     .service-card {
       background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      padding: 1.2rem 1rem 1.5rem 1rem;
-      margin: 0.5rem 0;
-      width: 250px;
-      min-width: 180px;
-      flex: 1 1 220px;
+      border-radius: 13px;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+      padding: 1.2rem 1rem 1.2rem 1rem;
+      margin: 0.6rem 0;
+      width: 215px;
+      min-width: 170px;
+      max-width: 230px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: box-shadow 0.2s, transform 0.2s;
+      transition: box-shadow 0.18s, transform 0.18s;
     }
     .service-card:hover {
-      box-shadow: 0 6px 24px rgba(33,150,243,.14);
-      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.14);
+      transform: translateY(-4px) scale(1.035);
     }
     .service-card img {
-      width: 100%;
-      max-width: 130px;
-      border-radius: 10px;
+      width: 96px;
+      height: 96px;
+      border-radius: 9px;
       margin-bottom: 10px;
       object-fit: contain;
+      background: #f3f4f6;
     }
     .service-card h2 {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 0.3rem 0;
+      font-size: 1.02rem;
+      margin: 0.2rem 0 0.3rem 0;
       text-align: center;
+      color: #232946;
+      font-weight: 600;
     }
     .service-card p {
-      font-size: 0.98rem;
+      font-size: 0.97rem;
       text-align: center;
       margin: 0.2rem 0;
+      color: #555;
     }
-    @media (max-width: 700px) {
-      .services {
-        gap: 1rem;
-      }
-      .service-card {
-        width: 90vw;
-        min-width: unset;
-        max-width: 340px;
-      }
-    }
-    header, footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 12px;
-    }
-    body {
-      background: #f6f8fc;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .hero {
-      max-width: 1100px;
-      margin: 20px auto 0 auto;
-      padding: 24px 20px 8px 20px;
-      text-align: center;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    /* Responsive social icons */
-    .king {
-      max-width: 1100px;
-      margin: 0 auto 18px auto;
+    .service-card a {
+      text-decoration: none;
+      color: #4f46e5;
+      font-weight: 500;
+      transition: color 0.18s;
+      width: 100%;
       display: flex;
-      gap: 18px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-card a:hover {
+      color: #232946;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 14px 0 8px 0;
+      font-size: 1rem;
+      color: #232946;
+      background: #f3f4f6;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.04);
+    }
+    .king {
+      display: flex;
+      gap: 14px;
       justify-content: center;
       align-items: center;
-      padding: 12px 0 0 0;
+      padding: 13px 0 10px 0;
     }
     .king img {
-      width: 32px;
-      height: 32px;
-      transition: transform 0.18s;
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      transition: transform 0.17s;
     }
     .king img:hover {
-      transform: scale(1.15) rotate(-5deg);
+      transform: scale(1.12) rotate(-4deg);
+    }
+    @media (max-width: 850px) {
+      .main-container {
+        padding: 0 7px;
+      }
+      .services {
+        gap: 0.8rem;
+      }
+      .service-card {
+        width: 44vw;
+        min-width: 140px;
+        max-width: 220px;
+        padding: 1rem 0.6rem;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 0 8px 0;
+      }
+      nav ul {
+        gap: 10px;
+      }
+      .services {
+        gap: 0.7rem;
+      }
+      .service-card {
+        width: 92vw;
+        min-width: unset;
+        max-width: 370px;
+        padding: 1rem 0.3rem;
+      }
+      .hero {
+        padding: 14px 6px;
+      }
     }
   </style>
 </head>
@@ -126,7 +241,40 @@
     </section>
 
     <section class="services">
-      <!-- ... your service cards here (unchanged) ... -->
+      <!-- Product Cards:  Example subset for brevity, copy/paste as needed -->
+      <div class="service-card">
+        <h2>Nike Shoes</h2>
+        <p>Comfortable shoes delivered safely within 48 hours.</p>
+        <a href="buy.html?product=nike">
+          <img src="./nike.jpg" alt="Nike shoes">
+          <p>Price: $110.15</p>
+        </a>
+      </div>
+      <div class="service-card">
+        <h2>Bluetooth Speaker</h2>
+        <p>Portable speaker with amazing sound quality.</p>
+        <a href="buy.html?product=bluetooth">
+          <img src="./bluetooth.jpg" alt="Bluetooth speaker">
+          <p>Price: $4,987</p>
+        </a>
+      </div>
+      <div class="service-card">
+        <h2>Headphones</h2>
+        <p>High-quality headphones for your favorite tunes.</p>
+        <a href="buy.html?product=headphone">
+          <img src="./headphone.jpg" alt="Headphones">
+          <p>Price: $299.99</p>
+        </a>
+      </div>
+      <div class="service-card">
+        <h2>Apple Device</h2>
+        <p>Latest Apple gadgets delivered fast to your home.</p>
+        <a href="buy.html?product=apple">
+          <img src="./apple.jpg" alt="Apple device">
+          <p>Price: $14,997</p>
+        </a>
+      </div>
+      <!-- ... more cards ... -->
     </section>
 
     <footer>
@@ -144,7 +292,24 @@
       </a>
     </div>
   </div>
-
-  <!-- Search Script and other JS ... -->
+  <!-- Improved Search Script -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+      const filter = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll('.service-card, .product-card');
+      cards.forEach(card => {
+        const title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : "";
+        const description = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : "";
+        const imgAlt = card.querySelector('img') ? card.querySelector('img').alt.toLowerCase() : "";
+        if (title.includes(filter) || description.includes(filter) || imgAlt.includes(filter)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  </script>
+  <script src="id.js"></script>
 </body>
 </html>
