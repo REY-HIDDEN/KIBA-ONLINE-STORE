@@ -3,47 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>KIBA Online Store - Home</title>
   <link rel="stylesheet" href="index.css">
+  <!-- Font Awesome for icons/magic sparkles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <!-- Animate.css for magical animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Magic sparkle animation */
+    .magic-sparkle {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.5em;
+      color: #fff176;
+      animation: sparkle 1s linear forwards;
+      opacity: 0.9;
+      z-index: 1000;
+      filter: drop-shadow(0 0 8px #fff176);
+    }
+    @keyframes sparkle {
+      0% { transform: scale(1) translateY(0) rotate(0deg); opacity: 0.9;}
+      60% { transform: scale(1.3) translateY(-20px) rotate(20deg); opacity: 1;}
+      100% { transform: scale(0.2) translateY(-40px) rotate(-12deg); opacity: 0;}
+    }
+    /* Magic glow on logo */
+    .logo {
+      text-shadow: 0 0 10px #fff176, 0 0 20px #fbc02d, 0 0 40px #ffd700;
+      animation: magic-glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes magic-glow {
+      0% { text-shadow: 0 0 10px #fff176, 0 0 20px #fbc02d, 0 0 40px #ffd700;}
+      100% { text-shadow: 0 0 30px #fff59d, 0 0 50px #ffe082, 0 0 80px #fffde7;}
+    }
+    /* Animated gradients for the background image overlay */
+    .layer-blur {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1), transparent 70%),
+                  linear-gradient(120deg,rgba(251,192,45,0.20),rgba(33,150,243,0.10));
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+    /* Make sure the container is above the blur layer */
+    .container, .content {
+      position: relative;
+      z-index: 2;
+    }
+    /* Add some animation to buttons */
+    .btn-get-started,
+    .btn-signing-main,
+    .btn-signing a {
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .btn-get-started:hover,
+    .btn-signing-main:hover,
+    .btn-signing a:hover {
+      box-shadow: 0 0 20px #ffd700, 0 0 40px #fff59d;
+      transform: scale(1.07) rotate(-2deg);
+    }
+    /* Floating robot animation */
+    .robot-3d img {
+      animation: floatRobot 4s ease-in-out infinite;
+    }
+    @keyframes floatRobot {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-18px);}
+      100% { transform: translateY(0);}
+    }
+    body {
+      /* optional: for magic background effect */
+      overflow-x: hidden;
+    }
+  </style>
 </head>
 <body>
-  <img class="image-gradient" src="king fuckinn image.png" alt="gradient">
-   <div class="layer-blur"> </div>
+  <img class="image-gradient" src="king fuckinn image.png" alt="gradient" style="position:absolute;width:100vw;height:100vh;object-fit:cover;z-index:0;">
+  <div class="layer-blur"></div>
 
-
-   <div class="container">
+  <div class="container">
     <header>
-      <h1 class="logo">KIBA Online store</h1>
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="service.html">SERVICE</a>
-  <a href="become.html">BECOME Supplier</a>
-  <a href="kiba.html">Add product</a>
-  <a href="help.html">Help</a>
-</nav>
-<button class="btn-signing"><a href="login.html">SIGNING</a></button>  
+      <h1 class="logo animate__animated animate__pulse animate__infinite">KIBA Online store <i class="fas fa-magic"></i></h1>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="service.html">SERVICE</a>
+        <a href="become.html">BECOME Supplier</a>
+        <a href="kiba.html">Add product</a>
+        <a href="help.html">Help</a>
+      </nav>
+      <button class="btn-signing"><a href="login.html">SIGNING</a></button>  
     </header>
     <main>
-   </div>
-   <div class="content">
+  </div>
+  <div class="content">
     <div class="tag-box">
       <div class="tag"> <a href="login.html">LOGIN</a> &wedbar; </div>
       <p class="description">
-        Buy with KIBA ONLINE STORE, 
-        Avision is the practice of tomorrow that gives us passion for today.
+        Buy with KIBA ONLINE STORE, <br>
+        <span class="animate__animated animate__fadeInLeftBig animate__delay-1s">
+          Avision is the practice of tomorrow that gives us passion for today.
+        </span>
       </p>
       <div class="buttons">
-        <a href="about.html" class="btn-get-started">ABOUT US &gt; </a>
-        <a href="register.html" class="btn-signing-main">Start your future &gt;</a>
+        <a href="about.html" class="btn-get-started animate__animated animate__jackInTheBox animate__delay-2s">ABOUT US &gt; </a>
+        <a href="register.html" class="btn-signing-main animate__animated animate__pulse animate__infinite">Start your future &gt;</a>
       </div>
     </div>
     <div class="robot-3d">
-<img src="./GENKUB - Greeting robot@1-1366x645.jpg" alt="" width="px" >
+      <img src="./GENKUB - Greeting robot@1-1366x645.jpg" alt="3D Robot" width="350px">
     </div>
     </main>
-   </div>
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.51/build/spline-viewer.js">
-</script>
-
+  </div>
+  
+  <!-- Spline 3D viewer (could be used for more advanced magic) -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.51/build/spline-viewer.js"></script>
+  <!-- Magic Sparkle Script -->
+  <script>
+    // Click magic sparkles
+    document.body.addEventListener('click', function(e){
+      const icons = ['fa-star', 'fa-magic', 'fa-sparkles', 'fa-bolt', 'fa-fire', 'fa-gem'];
+      const icon = icons[Math.floor(Math.random()*icons.length)];
+      for(let i=0;i<3;i++){
+        const sparkle = document.createElement('i');
+        sparkle.className = `fas ${icon} magic-sparkle`;
+        sparkle.style.left = (e.pageX + (Math.random()-0.5)*60) + 'px';
+        sparkle.style.top = (e.pageY + (Math.random()-0.5)*60) + 'px';
+        sparkle.style.fontSize = (1.2 + Math.random()*2.3)+'em';
+        sparkle.style.color = ['#ffd700','#fff176','#fbc02d','#ffea00'][Math.floor(Math.random()*4)];
+        document.body.appendChild(sparkle);
+        setTimeout(()=>{sparkle.remove();}, 1000+Math.random()*400);
+      }
+    });
+    // Optional: subtle sparkle drift on logo every few seconds
+    setInterval(()=>{
+      const logo = document.querySelector('.logo');
+      if(logo){
+        const rect = logo.getBoundingClientRect();
+        const x = rect.left + rect.width/2 + (Math.random()-0.5)*100;
+        const y = rect.top + (Math.random()-0.4)*30 + window.scrollY;
+        const sparkle = document.createElement('i');
+        sparkle.className = `fas fa-star magic-sparkle`;
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        sparkle.style.fontSize = (1.2 + Math.random()*1.5)+'em';
+        sparkle.style.color = ['#ffd700','#fff176','#fbc02d','#ffea00'][Math.floor(Math.random()*4)];
+        document.body.appendChild(sparkle);
+        setTimeout(()=>{sparkle.remove();}, 1100+Math.random()*300);
+      }
+    }, 3500);
+  </script>
 </body>
 </html>
