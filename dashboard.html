@@ -1,315 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KIBA Online Store - Services</title>
-  <link rel="stylesheet" href="service.css" />
-  <!-- Font Awesome for search icon (optional) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - KIBA Online Store</title>
+  <!-- Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
     body {
-      background: #f6f8fc;
-      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+      min-height: 100vh;
+      color: #232946;
     }
-    .main-container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    header {
-      background: #fff;
-      border-radius: 0 0 16px 16px;
-      box-shadow: 0 2px 16px rgba(99,102,241,0.07);
-      padding: 14px 0 10px 0;
+    .dashboard-header {
+      background: #4f46e5;
+      color: #fff;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      padding: 1.2rem 2rem;
+      box-shadow: 0 4px 16px rgba(79,70,229,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
-    .logo a {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #4f46e5;
-      text-decoration: none;
-      letter-spacing: 1px;
-      padding-left: 12px;
-      text-shadow: 0 0 8px #a5b4fc33;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li a {
-      color: #4f46e5;
-      text-decoration: none;
-      padding: 7px 16px;
-      border-radius: 7px;
-      font-weight: 500;
-      transition: background 0.18s, color 0.18s;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      background: #e0e7ff;
-      color: #232946;
-    }
-    .search-bar {
+    .logo {
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      background: #f3f4f6;
-      border-radius: 8px;
-      padding: 4px 10px;
-      gap: 7px;
+      gap: 0.5em;
+      text-shadow: 0 0 10px #a5b4fc;
+      animation: logo-glow 2.5s infinite alternate;
     }
-    .search-bar input {
-      border: none;
-      background: none;
-      padding: 7px;
-      font-size: 1rem;
-      width: 170px;
-      outline: none;
-      color: #232946;
+    @keyframes logo-glow {
+      0% { text-shadow: 0 0 10px #a5b4fc;}
+      100% { text-shadow: 0 0 30px #818cf8;}
     }
-    .search-bar i {
-      color: #6366f1;
+    .user-info {
       font-size: 1.1rem;
-    }
-    .hero {
-      margin: 26px 0 10px 0;
-      padding: 24px 14px;
-      text-align: center;
-      background: linear-gradient(100deg, #e0e7ff 0%, #fff 90%);
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(99,102,241,0.05);
-    }
-    .hero h1 {
-      font-size: 2rem;
-      color: #4f46e5;
-      margin-bottom: 0.5rem;
-    }
-    .services {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      margin: 26px 0;
+      align-items: center;
+      gap: 1rem;
     }
-    .service-card {
+    .btn-logout {
       background: #fff;
-      border-radius: 13px;
-      box-shadow: 0 2px 12px rgba(99,102,241,0.08);
-      padding: 1.2rem 1rem 1.2rem 1rem;
-      margin: 0.6rem 0;
-      width: 215px;
-      min-width: 170px;
-      max-width: 230px;
+      color: #4f46e5;
+      padding: 7px 18px;
+      border: none;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.25s, color 0.25s;
+      box-shadow: 0 2px 8px rgba(79,70,229,0.12);
+    }
+    .btn-logout:hover {
+      background: #4f46e5;
+      color: #fff;
+      outline: 1.5px solid #fff;
+    }
+
+    .dashboard-container {
+      display: flex;
+      min-height: 80vh;
+    }
+    /* Sidebar */
+    .sidebar {
+      background: #fff;
+      border-radius: 0 24px 24px 0;
+      box-shadow: 2px 0 18px 0 rgba(79,70,229,0.07);
+      min-width: 220px;
+      padding: 2.2rem 1.2rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.18s, transform 0.18s;
+      gap: 1.1rem;
+      position: relative;
+      z-index: 10;
+      transition: transform 0.3s ease;
     }
-    .service-card:hover {
-      box-shadow: 0 8px 32px rgba(99,102,241,0.14);
-      transform: translateY(-4px) scale(1.035);
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
     }
-    .service-card img {
-      width: 96px;
-      height: 96px;
-      border-radius: 9px;
-      margin-bottom: 10px;
-      object-fit: contain;
-      background: #f3f4f6;
-    }
-    .service-card h2 {
-      font-size: 1.02rem;
-      margin: 0.2rem 0 0.3rem 0;
-      text-align: center;
-      color: #232946;
-      font-weight: 600;
-    }
-    .service-card p {
-      font-size: 0.97rem;
-      text-align: center;
-      margin: 0.2rem 0;
-      color: #555;
-    }
-    .service-card a {
+    .sidebar a {
       text-decoration: none;
       color: #4f46e5;
-      font-weight: 500;
-      transition: color 0.18s;
-      width: 100%;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 8px 18px;
+      border-radius: 14px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .sidebar a.active, .sidebar a:hover {
+      background: linear-gradient(90deg, #6366f1 30%, #818cf8 100%);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.18);
+    }
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2.5rem 2.5rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 2.5rem;
+      background: transparent;
     }
-    .service-card a:hover {
-      color: #232946;
+    .main-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.7rem;
+      color: #4f46e5;
+      letter-spacing: 1px;
     }
-    footer {
-      margin-top: 30px;
-      padding: 14px 0 8px 0;
-      font-size: 1rem;
-      color: #232946;
-      background: #f3f4f6;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(99,102,241,0.04);
-    }
-    .king {
+    .cards {
       display: flex;
-      gap: 14px;
-      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .card {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.10);
+      border-radius: 20px;
+      flex: 1 1 260px;
+      min-width: 260px;
+      max-width: 330px;
+      padding: 2rem 1.4rem 1.3rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: transform 0.16s, box-shadow 0.16s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 120px; height: 120px;
+      background: linear-gradient(135deg, #c7d2fe 0%, #6366f1 100%);
+      opacity: 0.13;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #6366f1;
+      margin: 0;
+      z-index: 1;
+      display: flex;
       align-items: center;
-      padding: 13px 0 10px 0;
+      gap: 0.5em;
     }
-    .king img {
-      width: 30px;
-      height: 30px;
+    .card p {
+      font-size: 1.05rem;
+      color: #555;
+      margin: 0;
+      z-index: 1;
+    }
+    .card a {
+      color: #4f46e5;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.7rem;
+      background: #e0e7ff;
+      padding: 7px 18px;
+      border-radius: 16px;
+      transition: background 0.18s, color 0.18s;
+      z-index: 1;
+      box-shadow: 0 2px 6px rgba(99,102,241,0.04);
+    }
+    .card a:hover {
+      background: #6366f1;
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.18);
+    }
+    .card:hover {
+      transform: translateY(-7px) scale(1.03);
+      box-shadow: 0 8px 40px rgba(99,102,241,0.15);
+    }
+    /* Marquee */
+    .marquee {
+      width: 100vw;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      animation: marquee 10s linear infinite;
+      background: linear-gradient(90deg, #818cf8 0%, #f1f5f9 100%);
+      padding: 13px 0;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1.13rem;
+      color: #232946;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 99;
+      letter-spacing: 2px;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Sidebar Toggle Button for Mobile */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      font-size: 1.9rem;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 8px 13px;
+      cursor: pointer;
+      z-index: 1001;
       border-radius: 7px;
-      transition: transform 0.17s;
+      transition: background 0.2s;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.13);
     }
-    .king img:hover {
-      transform: scale(1.12) rotate(-4deg);
+    .sidebar-toggle:hover {
+      background: #818cf8;
+    }
+    /* Responsive design */
+    @media (max-width: 1050px) {
+      .main-content {
+        padding: 2rem 1rem;
+      }
+      .cards {
+        gap: 1.2rem;
+      }
     }
     @media (max-width: 850px) {
-      .main-container {
-        padding: 0 7px;
-      }
-      .services {
-        gap: 0.8rem;
-      }
-      .service-card {
-        width: 44vw;
-        min-width: 140px;
-        max-width: 220px;
-        padding: 1rem 0.6rem;
-      }
+      .cards {flex-direction: column; gap: 1.5rem;}
+      .main-content {padding: 1.2rem 0.4rem;}
+      .dashboard-header {flex-direction: column; gap: 0.85rem;}
     }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px 0 8px 0;
+    @media (max-width: 700px) {
+      .sidebar {
+        position: fixed;
+        left: 0; top: 0; bottom: 0;
+        min-width: 200px;
+        width: 65vw;
+        transform: translateX(-100%);
+        border-radius: 0 18px 18px 0;
+        box-shadow: 2px 0 28px 0 rgba(79,70,229,0.11);
+        z-index: 999;
+        background: #fff;
+        padding: 2rem 1rem;
       }
-      nav ul {
-        gap: 10px;
-      }
-      .services {
-        gap: 0.7rem;
-      }
-      .service-card {
-        width: 92vw;
-        min-width: unset;
-        max-width: 370px;
-        padding: 1rem 0.3rem;
-      }
-      .hero {
-        padding: 14px 6px;
-      }
+      .sidebar.active { transform: translateX(0); }
+      .dashboard-container { flex-direction: column;}
+      .sidebar-toggle { display: block; }
+    }
+    @media (max-width: 440px) {
+      .logo {font-size: 1.1rem;}
+      .main-content h2 {font-size: 1.23rem;}
+      .card h3 {font-size: 1.1rem;}
+      .sidebar {min-width: 140px;}
     }
   </style>
 </head>
 <body>
-  <div class="main-container">
-    <header>
-      <div class="logo"><a href="./index.html">KIBA Online Store</a></div>
-      <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Search goods, services...">
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Products</a></li>
-          <li><a href="login.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="help.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>Our Services</h1>
-      <p>Explore what KIBA Online Store offers to simplify your shopping experience.</p>
-    </section>
-
-    <section class="services">
-      <!-- Product Cards:  Example subset for brevity, copy/paste as needed -->
-      <div class="service-card">
-        <h2>Nike Shoes</h2>
-        <p>Comfortable shoes delivered safely within 48 hours.</p>
-        <a href="buy.html?product=nike">
-          <img src="./nike.jpg" alt="Nike shoes">
-          <p>Price: $110.15</p>
-        </a>
-      </div>
-      <div class="service-card">
-        <h2>Bluetooth Speaker</h2>
-        <p>Portable speaker with amazing sound quality.</p>
-        <a href="buy.html?product=bluetooth">
-          <img src="./bluetooth.jpg" alt="Bluetooth speaker">
-          <p>Price: $4,987</p>
-        </a>
-      </div>
-      <div class="service-card">
-        <h2>Headphones</h2>
-        <p>High-quality headphones for your favorite tunes.</p>
-        <a href="buy.html?product=headphone">
-          <img src="./headphone.jpg" alt="Headphones">
-          <p>Price: $299.99</p>
-        </a>
-      </div>
-      <div class="service-card">
-        <h2>Apple Device</h2>
-        <p>Latest Apple gadgets delivered fast to your home.</p>
-        <a href="buy.html?product=apple">
-          <img src="./apple.jpg" alt="Apple device">
-          <p>Price: $14,997</p>
-        </a>
-      </div>
-      <!-- ... more cards ... -->
-    </section>
-
-    <footer>
-      <p>&copy; 2025 KIBA Online Store. All rights reserved.</p>
-    </footer>
-    <div class="king">
-      <a href="https://twitter.com/YourTwitterHandle" target="_blank" rel="noopener noreferrer">
-        <img src="./twitter.png" alt="Twitter">
-      </a>
-      <a href="https://facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer">
-        <img src="./facebook.png" alt="Facebook">
-      </a>
-      <a href="https://instagram.com/YourInstagramHandle" target="_blank" rel="noopener noreferrer">
-        <img src="./instagram.png" alt="Instagram">
-      </a>
+  <button class="sidebar-toggle" aria-label="Open Sidebar"><i class="fas fa-bars"></i></button>
+  <!-- HEADER -->
+  <header class="dashboard-header">
+    <h1 class="logo"><i class="fas fa-store"></i> KIBA ONLINE STORE USER Dashboard</h1>
+    <div class="user-info">
+      <span>Welcome, <strong id="username">User</strong></span>
+      <a href="login.html" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
+  </header>
+
+  <div class="dashboard-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html" class="active"><i class="fas fa-house"></i> Dashboard</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="orders.html"><i class="fas fa-cart-shopping"></i> My Orders</a>
+        <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="help.html"><i class="fas fa-cog"></i> Settings</a>
+        <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <h2>Overview</h2>
+      <div class="cards">
+        <div class="card">
+          <h3><i class="fas fa-user"></i> Profile</h3>
+          <p>Update your details and manage your account.</p>
+          <a href="profile.html">Manage Profile &rarr;</a>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-cart-shopping"></i> My Orders</h3>
+          <p>Check your purchase history and track orders.</p>
+          <a href="orders.html">View Orders &rarr;</a>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-cog"></i> Settings</h3>
+          <p>Manage notifications, security, and preferences.</p>
+          <a href="help.html">Go to Settings &rarr;</a>
+        </div>
+      </div>
+    </main>
   </div>
-  <!-- Improved Search Script -->
+
+  <div class="marquee">WELCOME to Kiba Online Store !!!</div>
+
   <script>
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', function() {
-      const filter = searchInput.value.toLowerCase();
-      const cards = document.querySelectorAll('.service-card, .product-card');
-      cards.forEach(card => {
-        const title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : "";
-        const description = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : "";
-        const imgAlt = card.querySelector('img') ? card.querySelector('img').alt.toLowerCase() : "";
-        if (title.includes(filter) || description.includes(filter) || imgAlt.includes(filter)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
+    // =====================
+    // Dynamic Username
+    // =====================
+    const username = "LIZIKI"; // Replace with session/login data
+    const usernameElement = document.getElementById("username");
+    if (usernameElement) {
+      usernameElement.textContent = username;
+    }
+
+    // =====================
+    // Sidebar Toggle for Mobile
+    // =====================
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+    if(toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+      });
+    }
+
+    // =====================
+    // Logout Confirmation
+    // =====================
+    const logoutBtn = document.querySelector(".btn-logout");
+    if(logoutBtn) {
+      logoutBtn.addEventListener("click", (e) => {
+        const confirmLogout = confirm("Are you sure you want to logout?");
+        if (!confirmLogout) {
+          e.preventDefault(); // Cancel logout
         }
       });
-    });
+    }
   </script>
-  <script src="id.js"></script>
 </body>
 </html>
