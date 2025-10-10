@@ -19,40 +19,69 @@
 
     .container {
       background: white;
-      width: 450px;
-      margin: 100px auto;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px gray;
+      width: 100%;
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 36px 28px 28px 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     h2 {
       color: orange;
+      margin-bottom: 24px;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px 0;
       border-radius: 8px;
-      border: 1px solid gray;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      transition: border 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1.5px solid orange;
+      background: #fffbe9;
     }
 
     .btn {
       background-color: orange;
       color: white;
-      padding: 10px;
+      padding: 12px 0;
       border: none;
       width: 100%;
       border-radius: 10px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: 600;
+      margin-top: 6px;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #ff9800;
+      opacity: 0.93;
     }
 
     .message {
-      margin-top: 10px;
+      margin-top: 18px;
       font-weight: bold;
       display: none;
+      font-size: 15px;
     }
 
     .success {
@@ -62,41 +91,81 @@
     .error {
       color: red;
     }
+
+    .links {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .links a {
+      color: orange;
+      margin-left: 6px;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .links a:hover {
+      color: #ff9800;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin: 30px 8px;
+        padding: 28px 8px;
+      }
+      input, .btn {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h2>Login to KIBA Online Store</h2>
-    <form id="loginForm">
-      <input type="email" id="email" placeholder="Email" required> 
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit" class="btn">Submit</button>
+    <form id="loginForm" autocomplete="on">
+      <input type="email" id="email" placeholder="Email" required autofocus>
+      <input type="password" id="password" placeholder="Password" required minlength="6">
+      <button type="submit" class="btn">Login</button>
     </form>
     <p id="loginMessage" class="message"></p>
+    <div class="links">
+      New user?
+      <a href="register.html">Register</a>
+      |
+      <a href="forgot-password.html">Forgot Password?</a>
+    </div>
   </div>
 
   <script>
     document.getElementById("loginForm").addEventListener("submit", function(event) {
       event.preventDefault(); // Stop page reload
 
-      let email = document.getElementById("email").value;
-      let password = document.getElementById("password").value;
-      let message = document.getElementById("loginMessage");
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("loginMessage");
 
-      // Validate: email must contain "@" and password must include at least one letter
-      let hasLetter = /[a-zA-Z]/.test(password);
+      // Improved email regex for basic validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Password must have at least one letter, one number, and be at least 6 chars
+      const validPassword = /[a-zA-Z]/.test(password) && /\d/.test(password) && password.length >= 6;
 
-      if (email.includes("@") && hasLetter) {
+      if (emailRegex.test(email) && validPassword) {
         message.textContent = "Login successful!";
         message.className = "message success";
         message.style.display = "block";
-
-        // Redirect to dashboard immediately
-        window.location.href = "dashboard.html";
-
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 800); // Short delay for user feedback
       } else {
-        message.textContent = "Password must include at least one letter and email must be valid!";
+        let errorMsg = [];
+        if (!emailRegex.test(email)) {
+          errorMsg.push("Enter a valid email.");
+        }
+        if (!validPassword) {
+          errorMsg.push("Password must be at least 6 characters and include a letter and a number.");
+        }
+        message.textContent = errorMsg.join(" ");
         message.className = "message error";
         message.style.display = "block";
       }
